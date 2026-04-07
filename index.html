@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог: Управление с клавиатуры</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>JS Blog Keyboard Demo</h1>
+    <div class="controls-hint">
+        <small>
+            <kbd>Ctrl+N</kbd> Новый пост | 
+            <kbd>Ctrl+/</kbd> Поиск | 
+            <kbd>Esc</kbd> Закрыть | 
+            <kbd>↑/↓</kbd> Навигация | 
+            <kbd>Space</kbd> Лайк | 
+            <kbd>Del</kbd> Удалить
+        </small>
+    </div>
+    <div class="search-wrapper">
+        <label for="search-input" class="visually-hidden">Поиск по блогу</label>
+        <input type="search" id="search-input" placeholder="Поиск (Ctrl+/)" aria-label="Поиск по блогy">
+    </div>
+</header>
+
+<main id="app">
+    <!-- Список постов -->
+    <div id="posts-container" role="feed" aria-busy="false" aria-label="Лента постов"></div>
+</main>
+
+<!-- Модальное окно -->
+<dialog id="post-modal" aria-labelledby="modal-title" aria-modal="true">
+    <form id="post-form" novalidate>
+        <h2 id="modal-title">Новый пост</h2>
+        
+        <div class="form-group">
+            <label for="post-title">Заголовок</label>
+            <input type="text" id="post-title" name="title" required autocomplete="off">
+        </div>
+
+        <div class="form-group">
+            <label for="post-content">Содержание</label>
+            <textarea id="post-content" name="content" rows="5" required></textarea>
+            <small class="hint">Enter: новая строка | Ctrl+Enter: отправить</small>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" id="submit-btn">Опубликовать</button>
+            <button type="button" id="cancel-btn">Отмена</button>
+        </div>
+    </form>
+</dialog>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
