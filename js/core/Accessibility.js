@@ -52,7 +52,7 @@ export class AccessibilityManager {
         }
     }
 
-    // Добавляет класс body.mouse-mode, если используется мышь
+
     #initKeyboardFocusDetection() {
         let usingMouse = false;
         document.addEventListener('mousedown', () => { 
